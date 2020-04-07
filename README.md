@@ -2,4 +2,4 @@
 
 This examples are extracted from the [Addy Osmani web book](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#singletonpatternjavascript).
 
-Only open the html in a browser.
+To view the axamples only open the html in a browser.
