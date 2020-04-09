@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning JavaScript Design Patterns / Examples - Addy Osmani</title>
+</head>
+<body>
+
+  <h1>Basket</h1>
+  <div id="basketContainer"></div>
+
+  <script src="js/module/basket.js"></script>
+  <script>
+    var basketContainer = document.getElementById("basketContainer");
+
+    var addItem = function (data) {
+      var item = document.createElement("p");
+      item.innerText = "Item: " + data.item + " | Price: " + data.price;
+      basketContainer.appendChild(item);
+    };
+
+    // basketModule returns an object with a public API we can use
+    var item1 = {
+      item: "bread",
+      price: 0.5
+    };
+
+    basketModule.addItem(item1);
+
+    addItem(item1);
+
+    var item2 = {
+      item: "butter",
+      price: 0.3
+    };
+
+    basketModule.addItem(item2);
+
+    addItem(item2);
+
+    // Outputs: 2
+    console.log(basketModule.getItemCount());
+
+    // Outputs: 0.8
+    console.log(basketModule.getTotal());
+
+    // However, the following will not work:
+
+    // Outputs: undefined
+    // This is because the basket itself is not exposed as a part of our
+    // public API
+    console.log(basketModule.basket);
+
+    // This also won't work as it only exists within the scope of our
+    // basketModule closure, but not in the returned public object
+    console.log(basket);
+  </script>
+</body>
+</html>
